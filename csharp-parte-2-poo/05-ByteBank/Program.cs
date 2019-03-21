@@ -10,31 +10,28 @@ namespace _05_ByteBank
     {
         static void Main(string[] args)
         {
-            ContaCorrente contadoBruno = new ContaCorrente();
+            // Cliente gabriela = new Cliente();
 
-            contadoBruno.titular = "Bruno";
+            // gabriela.nome = "Gabriela";
+            // gabriela.profissao = "Desenvolvedora C#";
+            // gabriela.cpf = "434.562.878-20";
 
-            Console.WriteLine(contadoBruno.saldo);
+            ContaCorrente conta = new ContaCorrente();
 
-            bool resultadoSaque = contadoBruno.Sacar(50);
+            // conta.titular = gabriela;
+            conta.Titular = new Cliente();
+            conta.Titular.nome = "Gabriela Costa";
+            conta.Titular.cpf = "434.562.878-20";
+            conta.Titular.profissao = "Desenvolvedora C#";
 
-            Console.WriteLine(contadoBruno.saldo);
-            Console.WriteLine(resultadoSaque);
+            conta.saldo = 500;
+            conta.agencia = 563;
+            conta.numero = 5634527;
 
-            contadoBruno.Depositar(500);
-            Console.WriteLine(contadoBruno.saldo);
-
-            ContaCorrente contaDaGabriela = new ContaCorrente();
-
-            contaDaGabriela.titular = "Gabriela";
-
-            Console.WriteLine("Saldo do Bruno: " + contadoBruno.saldo);
-            Console.WriteLine("Saldo da Gabriela: " + contaDaGabriela.saldo);
-
-            contadoBruno.Transferir(200, contaDaGabriela);
-            Console.WriteLine("Foi transferido 200 da Conta do Bruno pra Gabriela ");
-            Console.WriteLine("Saldo do Bruno: " + contadoBruno.saldo);
-            Console.WriteLine("Saldo da Gabriela: " + contaDaGabriela.saldo);
+            // Console.WriteLine(gabriela.nome);
+            Console.WriteLine(conta.Titular.nome);
+            Console.WriteLine(conta.Titular.cpf);
+            Console.WriteLine(conta.Titular.profissao);
 
             Console.ReadLine();
 
