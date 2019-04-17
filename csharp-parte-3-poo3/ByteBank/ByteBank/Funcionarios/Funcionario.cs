@@ -6,33 +6,28 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Funcionario
+    public abstract class Funcionario
     {
-        public static int TotalDeFuniconarios { get; private set; }
+        public static int TotalDeFuncionarios { get; private set; }
 
         public string Nome { get; set; }
         public string CPF { get; private set; }
         public double Salario { get; protected set; }
-        public static int TotalDeFuncionarios { get; set; }
 
        
         public Funcionario(double salario, string cpf)
         {
+            Console.WriteLine("Construtor do Funcionario");
+
             CPF = cpf;
             Salario = salario;
-            TotalDeFuniconarios++;
-            Console.WriteLine("Criando Funcionario");
+
             TotalDeFuncionarios++;
         }
 
-        public virtual void AumentarSalario()
-        {
-            Salario *= 1.1;
-        }              
+        public abstract void AumentarSalario();
 
-        public virtual double GetBonificacao()
-        {
-            return Salario * 0.10;
-        }
+        public abstract double GetBonificacao();
+        
     }
 }
