@@ -8,7 +8,6 @@ namespace ByteBank.Funcionarios
 {
     public class Funcionario
     {
-<<<<<<< HEAD
         public static int TotalDeFuniconarios { get; private set; }
 
         public string Nome { get; set; }
