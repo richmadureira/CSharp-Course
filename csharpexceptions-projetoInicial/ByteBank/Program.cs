@@ -44,10 +44,16 @@ namespace ByteBank
 
         public static int Dividir(int Numero, int divisor)
         {
-            ContaCorrente conta = null;
-            //Console.WriteLine(conta.Saldo);
+            try
+            {
+                return Numero / divisor;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exceção com numero=" + Numero + "e divisor=" + divisor);
+                throw;
+            }
 
-            return Numero / divisor;
         }
 
 
