@@ -1,2 +1,2 @@
-##### CursoAluraCSharp
-* Repositorio destinado ao curso de C# do Alura.
+##### Curso CSharp
+* Repository for the Alura C# course.
