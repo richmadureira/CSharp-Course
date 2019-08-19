@@ -21,8 +21,18 @@ namespace ByteBank.SistemaAgencia
             //                             |
             //            ----------------´
 
-            string palavra = "moedaOrigem=real&moedaDestino=dolar";
-            string nomeArgumento = "moedaDestino";
+            string url = "www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(url);
+
+            extrator.GetValor("moedaOrigem");//real
+            extrator.GetValor("moedaDestino");//dolar
+            extrator.GetValor("Valor");//1500
+
+
+
+
+            string palavra = "moedaOrigem=moedaDestino&moedaDestino=dolar";
+            string nomeArgumento = "moedaDestino=";
 
             int indice = palavra.IndexOf(nomeArgumento);
             Console.WriteLine(indice);
@@ -31,7 +41,7 @@ namespace ByteBank.SistemaAgencia
 
             Console.WriteLine(palavra);
             Console.WriteLine(palavra.Substring(indice));
-            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length + 1));
+            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
             Console.ReadLine();
 
 
@@ -52,9 +62,9 @@ namespace ByteBank.SistemaAgencia
 
 
 
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL("");
+            //ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL("");
 
-            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
+            //string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
 
             int indiceInterrogacao = url.IndexOf('?');
 
