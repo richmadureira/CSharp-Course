@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
@@ -12,6 +13,21 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            //string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+            //string padrao = "[0-9]{4}[-][0-9]{4}";
+            //string padrao = "[0-9]{4}-[0-9]{4}";
+            //string padrao = "[0-9]{4,5}-[0-9]{4}";
+            string padrao = "[0-9]{4,5}-?[0-9]{4}";
+
+
+
+            string texto = "Meu número é: 2342-3245";
+
+            Match match = Regex.Match(texto, padrao);
+            Console.WriteLine(match.Value);
+
+            Console.ReadLine();
+
             // pagina?argumentos
             // 012345678
 
