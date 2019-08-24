@@ -13,39 +13,20 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            //string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+            //string padrao = "[0-9]{4}[-][0-9]{4}";
+            //string padrao = "[0-9]{4}-[0-9]{4}";
+            //string padrao = "[0-9]{4,5}-[0-9]{4}";
+            string padrao = "[0-9]{4,5}-?[0-9]{4}";
 
-            ContaCorrente conta = new ContaCorrente(342, 37652);
-            //Console.WriteLine(conta);
 
-            Cliente carlos_1 = new Cliente();
-            carlos_1.Nome = "Carlos";
-            carlos_1.CPF = "458.623.120-03";
-            carlos_1.Profissao = "Designer";
 
-            Cliente carlos_2 = new Cliente();
-            carlos_2.Nome = "Carlos";
-            carlos_2.CPF = "458.623.120-03";
-            carlos_2.Profissao = "Designer";
-
-            if (carlos_1.Equals(carlos_2))
-            {
-                Console.WriteLine("São iguais!");
-            }
-
-            Console.ReadLine();
-                       
-            //---------------------------------------------------------
-
-            string texto = "Meu numero é: 2354-5268";
-
-            string padrao = "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
+            string texto = "Meu número é: 2342-3245";
 
             Match match = Regex.Match(texto, padrao);
             Console.WriteLine(match.Value);
 
             Console.ReadLine();
-
-
 
             // pagina?argumentos
             // 012345678
@@ -56,8 +37,18 @@ namespace ByteBank.SistemaAgencia
             //                             |
             //            ----------------´
 
-            string palavra = "moedaOrigem=real&moedaDestino=dolar";
-            string nomeArgumento = "moedaDestino";
+            string url = "www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(url);
+
+            extrator.GetValor("moedaOrigem");//real
+            extrator.GetValor("moedaDestino");//dolar
+            extrator.GetValor("Valor");//1500
+
+
+
+
+            string palavra = "moedaOrigem=moedaDestino&moedaDestino=dolar";
+            string nomeArgumento = "moedaDestino=";
 
             int indice = palavra.IndexOf(nomeArgumento);
             Console.WriteLine(indice);
@@ -66,7 +57,7 @@ namespace ByteBank.SistemaAgencia
 
             Console.WriteLine(palavra);
             Console.WriteLine(palavra.Substring(indice));
-            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length + 1));
+            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
             Console.ReadLine();
 
 
@@ -87,9 +78,9 @@ namespace ByteBank.SistemaAgencia
 
 
 
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL("");
+            //ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL("");
 
-            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
+            //string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
 
             int indiceInterrogacao = url.IndexOf('?');
 
