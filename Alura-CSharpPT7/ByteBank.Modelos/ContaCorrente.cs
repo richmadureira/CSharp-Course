@@ -23,7 +23,7 @@ namespace ByteBank.Modelos
         public int Numero { get; }
         public int Agencia { get; }
 
-        private double _saldo = 100;
+private double _saldo = 100;
         public double Saldo
         {
             get
@@ -39,6 +39,18 @@ namespace ByteBank.Modelos
 
                 _saldo = value;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            ContaCorrente outraConta = obj as ContaCorrente;
+
+            if (outraConta == null)
+            {
+                return false;
+            }
+
+            return Numero == outraConta.Numero && Agencia == outraConta.Agencia;
         }
 
         /// <summary>

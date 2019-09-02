@@ -22,6 +22,8 @@ namespace ByteBank.SistemaAgencia
             //idades[4] = 28;
             //idades[5] = 63;
 
+
+
             int acumulador = 0;
             for(int indice = 0; indice < idades.Length; indice++)
             {
