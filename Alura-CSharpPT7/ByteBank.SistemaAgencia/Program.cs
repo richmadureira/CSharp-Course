@@ -12,7 +12,7 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-
+            /*
             int[] idades = new int[] {15, 28, 35, 50, 28};
 
             //idades[0] = 15;
@@ -30,6 +30,13 @@ namespace ByteBank.SistemaAgencia
 
             int media = acumulador / idades.Length;
             Console.WriteLine(media);
+            */
+
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+            lista.Adicionar(new ContaCorrente(346, 24561));
+            lista.Adicionar(new ContaCorrente(385, 58464));
+            lista.Adicionar(new ContaCorrente(323, 79898));
 
             Console.ReadLine();
             
